@@ -19,6 +19,10 @@ const App = () => {
   const onChange = () => {
     clearTimeout(ref.current)
     ref.current = setTimeout(() => {
+      if (input.current.value == '') {
+        setAns(list)
+        return
+      }
       const regex = new RegExp('^' + input.current.value)
       setAns(p => p.filter(t => regex.test(t)))
     }, 10)
